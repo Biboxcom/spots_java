@@ -284,11 +284,34 @@ class JSONUtils {
     }
 
     public static Order parseOrderEvent(JSONObject obj) {
-        return LimitOrder.parseResult(obj);
+        return LimitOrder.parseEvent(obj);
     }
 
     public static Fill parseFillEvent(JSONObject obj) {
         return Fill.parseEvent(obj);
+    }
+
+    public static List<Candlestick> parseCandlesticksNew(JSONArray arr) {
+        List<Candlestick> list = new ArrayList<>();
+        if (arr.size()>1) {
+            list.add(Candlestick.parseResult(arr.getJSONArray(1)));
+        }
+        return list;
+    }
+
+    public static Ticker parseTickerEventNew(JSONArray obj) {
+        return Ticker.parseEvent(obj);
+    }
+
+    public static List<Trade> parseTradeEventNew(JSONArray arr) {
+        List<Trade> list = new ArrayList<>();
+        list.add(Trade.parseEvent(arr));
+        return list;
+    }
+    public static List<Trade> parseTradeEventNew(JSONArray arr, String pair) {
+        List<Trade> list = new ArrayList<>();
+        list.add(Trade.parseEvent(arr,pair));
+        return list;
     }
 
 }

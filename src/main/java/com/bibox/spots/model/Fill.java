@@ -66,17 +66,16 @@ public class Fill extends Trade {
     }
 
     public static Fill parseEvent(JSONObject obj) {
-        System.out.println(obj.toJSONString());
         Fill a = new Fill();
         a.setId(obj.getString("id"));
-        a.setOrderId(obj.getString("relay_id"));
-        a.setSymbol(obj.getString("coin_symbol") + "_"
-                + obj.getString("currency_symbol"));
-        a.setSide(TradeSide.fromInteger(obj.getInteger("order_side")));
-        a.setPrice(obj.getBigDecimal("price"));
-        a.setQuantity(obj.getBigDecimal("amount"));
-        a.setIsMaker(obj.getBoolean("is_maker"));
-        a.setTime(obj.getLong("createdAt"));
+        a.setOrderId(obj.getString("rid"));
+        a.setSymbol(obj.getString("bs") + "_"
+                + obj.getString("qs"));
+        a.setSide(TradeSide.fromInteger(obj.getInteger("os")));
+        a.setPrice(obj.getBigDecimal("dp"));
+        a.setQuantity(obj.getBigDecimal("da"));
+        a.setIsMaker(obj.getBoolean("im"));
+        a.setTime(obj.getLong("ct"));
         Fee fee = new Fee();
         fee.setValue(obj.getBigDecimal("fee"));
         fee.setSymbol(obj.getString("fee_symbol"));

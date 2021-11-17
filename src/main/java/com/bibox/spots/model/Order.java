@@ -40,6 +40,12 @@ public abstract class Order {
     // 委托id
     private String orderId;
 
+    // client order id
+    private String clientOid;
+
+    // 成交价格
+    private BigDecimal dealPrice;
+
     // 委托数量
     @Setter
     private BigDecimal quantity;

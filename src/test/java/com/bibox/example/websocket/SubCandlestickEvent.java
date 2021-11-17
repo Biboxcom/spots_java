@@ -7,7 +7,7 @@ public class SubCandlestickEvent {
 
     public static void main(String[] args) {
         BiboxSpotsClient client = new BiboxSpotsClient();
-        String symbol = "BIX_USDT";
+        String symbol = "BTC_USDT";
         client.subscribeCandlestick(symbol, TimeInterval.ONE_MINUTE, (x) -> {
             x.forEach(System.out::println);
             // ...

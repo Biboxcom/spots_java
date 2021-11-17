@@ -6,7 +6,7 @@ public class SubTradeEvent {
 
     public static void main(String[] args) {
         BiboxSpotsClient client = new BiboxSpotsClient();
-        String symbol = "BIX_USDT";
+        String symbol = "BTC_USDT";
         client.subscribeTrade(symbol, (x) -> {
             x.forEach(System.out::println);
             // ...
