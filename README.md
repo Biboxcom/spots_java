@@ -22,7 +22,7 @@
 // 如果出现网络问题,你可能需要代理或者重设client的相关地址参数
 
 // 公开的api 获取kline
-BiboxFuturesClient client = new BiboxFuturesClient();
+BiboxSpotsClient client = new BiboxSpotsClient();
 List<Candlestick> res = client.getCandlestick("BTC_USD", CandlestickInterval.WEEKLY,10);
 System.out.println(res);
         
