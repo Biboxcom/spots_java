@@ -293,8 +293,9 @@ abstract class BiboxSpotsClientBase {
             if (PrivateSubscription.CHANNEL_PREFIX.equals(channel)) {
                 JSONObject data = json.getJSONObject("d");
                 for (PrivateSubscription sub : privateSubscriptions.values()) {
-                    if (data.containsKey(sub.getDataName())) {
+                    if (sub.belong(data)) {
                         sub.onMessage(data);
+                        return;
                     }
                 }
                 return;

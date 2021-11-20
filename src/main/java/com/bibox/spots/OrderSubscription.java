@@ -54,7 +54,7 @@ class OrderSubscription extends PrivateSubscription<List<Order>> {
     @Override
     boolean belong(JSONObject json) {
         if (json.containsKey(getDataName())){
-            return json.getJSONObject(getDataName()).getInteger("account_type") == 0;
+            return json.getJSONObject(getDataName()).getInteger("at") == 0;
         }
         return false;
     }
