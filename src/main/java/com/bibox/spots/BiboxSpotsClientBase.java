@@ -315,6 +315,8 @@ abstract class BiboxSpotsClientBase {
             messageHandler.postDelayed(() -> {
                 log.error("Cannot connect to '{}'", urlWss, error);
                 reconnectWebSocket();
+                subscriptions.values().forEach(this::subscribe);
+                privateSubscriptions.values().forEach(this::subscribe);
             }, 2_000);
         }
     }
@@ -356,6 +358,7 @@ abstract class BiboxSpotsClientBase {
         if (webSocket != null) {
             try {
                 webSocket.close();
+                webSocket = null;
             }catch (Exception e){
                 // 关闭失败
                 log.warn(e.getMessage());
