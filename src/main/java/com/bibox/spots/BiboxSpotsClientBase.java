@@ -70,6 +70,8 @@ abstract class BiboxSpotsClientBase {
     public static final String URL_ORDER_DETAIL = "/v3.1/orderpending/order";
     public static final String URL_PLACE_ORDER = "/v3.1/orderpending/trade";
     public static final String URL_CANCEL_ORDER = "/v3.1/orderpending/cancelTrade";
+    public static final String URL_CANCEL_BATCH_ORDER = "/v3/spot/order/cancelBatch";
+    public static final String URL_CANCEL_ALL_ORDER = "/v3/spot/order/cancelAll";
     public static final String URL_TRADES = "/v3.1/orderpending/orderDetail";
     public static final String URL_TRADES_HISTORY = "/v3.1/orderpending/orderHistoryList";
     public static final String URL_BILLS = "/v3.1/spot/account/bills";
