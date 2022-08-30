@@ -69,6 +69,26 @@ public class BiboxSpotsClient extends BiboxSpotsClientBase {
     }
 
     /**
+     * 批量撤销委托
+     */
+    public void cancelBatchOrder(OrderIdSet orderIds) throws Throwable {
+        JSONObject json = new JSONObject();
+        json.put("order_ids", orderIds);
+
+        JSONUtils.parseError(doPost(URL_CANCEL_BATCH_ORDER, json.toJSONString()));
+    }
+
+    /**
+     * 撤销单个交易对的所有委托
+     */
+    public void cancelAllOrder(String pair) throws Throwable {
+        JSONObject json = new JSONObject();
+        json.put("pair", pair);
+
+        JSONUtils.parseError(doPost(URL_CANCEL_ALL_ORDER, json.toJSONString()));
+    }
+
+    /**
      * 从钱包转进现货
      *
      * @param symbol 划转币种
